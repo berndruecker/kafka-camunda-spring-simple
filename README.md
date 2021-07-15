@@ -11,6 +11,6 @@ The example automates a very simple process, that
 
 ![](architecture.png)
 
-You can find a walk through on YoutTube here:
+You can find a walk through on YouTube here:
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=ZHKz9l5yG3Q" target="_blank"><img src="http://img.youtube.com/vi/ZHKz9l5yG3Q/0.jpg" alt="Walkthrough" width="240" height="180" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=jgRhq8h2ZT4" target="_blank"><img src="http://img.youtube.com/vi/jgRhq8h2ZT4/0.jpg" alt="Walkthrough" width="240" height="180" border="10" /></a>
