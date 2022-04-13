@@ -1,8 +1,8 @@
-# Confluent Cloud (Apache Kafka) + Camunda Cloud (Zeebe) 
+# Confluent Cloud (Apache Kafka) + Camunda Platform 8 (Zeebe) 
 
 ## Sample Glue Code Written in Java Spring Boot
 
-Simple example code connecting Confluent Cloud (Kafka) and Camunda Cloud (Zeebe) by leveraging the Java Spring Boot integrations of both frameworks.
+Simple example code connecting Confluent Cloud (Kafka) and Camunda Platform 8 SaaS (Zeebe) by leveraging the Java Spring Boot integrations of both frameworks.
 
 The example automates a very simple process, that
 
