@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableZeebeClient
 @ZeebeDeployment(resources = "classpath:*.bpmn")
-public class ProcessApplication {
+public class CamundaKafkaExampleApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(ProcessApplication.class, args);
+    SpringApplication.run(CamundaKafkaExampleApplication.class, args);
   }
 
   @Bean
