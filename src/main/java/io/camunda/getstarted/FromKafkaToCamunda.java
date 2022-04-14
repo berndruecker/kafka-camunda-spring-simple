@@ -14,14 +14,14 @@ import org.springframework.stereotype.Component;
 import io.camunda.zeebe.client.ZeebeClient;
 
 @Component
-public class KafkaToProcessListener {
+public class FromKafkaToCamunda {
 
-  private final static Logger LOG = LoggerFactory.getLogger(KafkaToProcessListener.class);
+  private final static Logger LOG = LoggerFactory.getLogger(FromKafkaToCamunda.class);
 
   @Autowired
   private ZeebeClient zeebe;
   
-  @KafkaListener(topics = KafkaTopicConfig.TOPIC_NAME)
+  @KafkaListener(topics = KafkaTopicConfiguration.TOPIC_NAME)
   public void processMessage(String content) throws JsonMappingException, JsonProcessingException {
       LOG.info("Received record: " + content);
 

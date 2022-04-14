@@ -14,13 +14,12 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 import io.camunda.zeebe.client.api.response.ActivatedJob;
-import io.camunda.zeebe.client.api.worker.JobClient;
 import io.camunda.zeebe.spring.client.annotation.ZeebeWorker;
 
 @Component
-public class SendRecordWorker {
+public class FromCamundaToKafka {
 
-  private final static Logger LOG = LoggerFactory.getLogger(SendRecordWorker.class);
+  private final static Logger LOG = LoggerFactory.getLogger(FromCamundaToKafka.class);
 
   @Autowired
   private NewTopic kafkaTopic;
