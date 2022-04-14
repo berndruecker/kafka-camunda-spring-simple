@@ -1,4 +1,4 @@
-package io.camunda.getstarted;
+package io.berndruecker.example.camunda.kafka;
 
 import java.util.Collections;
 import java.util.Map;

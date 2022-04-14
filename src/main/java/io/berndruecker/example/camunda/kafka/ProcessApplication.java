@@ -1,4 +1,4 @@
-package io.camunda.getstarted;
+package io.berndruecker.example.camunda.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
