@@ -1,10 +1,12 @@
 package io.camunda.getstarted;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import io.camunda.zeebe.spring.client.EnableZeebeClient;
 import io.camunda.zeebe.spring.client.annotation.ZeebeDeployment;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableZeebeClient
@@ -15,4 +17,8 @@ public class ProcessApplication {
     SpringApplication.run(ProcessApplication.class, args);
   }
 
+  @Bean
+  public ObjectMapper objectMapper() {
+    return new ObjectMapper();
+  }
 }

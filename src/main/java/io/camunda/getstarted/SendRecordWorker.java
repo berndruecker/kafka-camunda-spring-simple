@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,17 +28,25 @@ public class SendRecordWorker {
   @Autowired
   private KafkaTemplate<String, String> kafka;
 
+  @Autowired
+  private ObjectMapper objectMapper;
+
   @ZeebeWorker(type = "send-record", autoComplete = true)
-  public Map<String, Object> sendRecord(final JobClient client, final ActivatedJob job) {
+  public Map<String, Object> sendRecord(final ActivatedJob job) throws JsonProcessingException {
     String correlationIdInKafkaRecord = UUID.randomUUID().toString();
-    
-    sendRecordToKafka(correlationIdInKafkaRecord);
+
+    Map<String, Object> variables = job.getVariablesAsMap();
+    variables.put("correlationId", correlationIdInKafkaRecord);
+
+    sendRecordToKafka(variables);
 
     return Collections.singletonMap("correlationIdInKafkaRecord", correlationIdInKafkaRecord);
   }
 
-  public void sendRecordToKafka(String correlationId) {
-    kafka.send(kafkaTopic.name(), "{\"correlationId\": \""+correlationId+"\"}").addCallback(
+  public void sendRecordToKafka(Map<String, Object> variables) throws JsonProcessingException {
+    String dataAsJson = objectMapper.writeValueAsString(variables);
+
+    kafka.send(kafkaTopic.name(), dataAsJson).addCallback(
       result -> {
         if (result != null) {
           LOG.info("Produced record: " + result.getRecordMetadata());
