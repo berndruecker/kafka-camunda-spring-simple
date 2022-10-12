@@ -17,7 +17,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<zeebe.version>8.0.1</zeebe.version>
+		<zeebe.version>8.1.0</zeebe.version>
 		<main.class>io.berndruecker.example.camunda.kafka.CamundaKafkaExampleApplication</main.class>
 	</properties>
 
