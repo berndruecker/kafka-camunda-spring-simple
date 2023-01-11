@@ -35,10 +35,7 @@ public class FromKafkaToCamunda {
       zeebe.newPublishMessageCommand()
         .messageName("MsgKafkaRecordReceived")
         .correlationKey(correlationId)
-        .send()
-        .exceptionally(t -> {
-          throw new RuntimeException("Could not hand over record to Zeebe: "+content+". check nested exception for details: " + t.getMessage());
-        });
+        .send();
   }
 
 }
